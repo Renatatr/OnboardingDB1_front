@@ -1,0 +1,79 @@
+<section class="criar-tarefa">
+    <div class="botao-criar">
+        <button (click)="mostrarOuEsconderFormulario('paciente')">
+            Cadastrar novo paciente
+        </button>
+        <button (click)="mostrarOuEsconderFormulario('medico')">
+            Cadastrar novo Médico
+        </button>
+        <button (click)="mostrarOuEsconderFormulario('consulta')">
+            Cadastrar nova Consulta
+        </button>
+    </div>
+    <form 
+        class="formulario ff-prompt"
+        [formGroup]="formularioPaciente"
+        *ngIf="formAbertoPaciente">
+        <label for="nome">Nome:</label>
+        <input required type="text" formControlName="nome" placeholder="Digite o nome" class="form-paciente">
+        <label for="date">Nascimento:</label>
+        <input required type="date" formControlName="nascimento" class="form-paciente-nascimento">
+        <label for="cpf">CPF:</label>
+        <input required type="text" formControlName="cpf" class="form-paciente">
+        <label for="acompanhante">Acompanhante:</label>
+        <input required type="text" formControlName="acompanhante" class="form-paciente">
+        
+        <div class="botoes-form">
+            <button id="botao-salvar" class="botao-form">
+                Salvar
+            </button>
+            <button class="botao-form botao-cancelar">
+                Cancelar
+            </button>
+        </div>
+    </form>
+    <form 
+        class="formulario ff-prompt"
+        [formGroup]="formularioMedico"
+        *ngIf="formAbertoMedico">
+        <label for="nome">Nome:</label>
+        <input required type="text" formControlName="nome" placeholder="Digite o nome" class="form-paciente">
+        <label for="especialidade">Especialidade:</label>
+        <input required type="text" formControlName="especialidade" class="form-paciente">
+        <label for="cpf">CPF:</label>
+        <input required type="text" formControlName="cpf" class="form-paciente">
+        <label for="crm">CRM:</label>
+        <input required type="text" formControlName="crm" class="form-paciente">
+        
+        <div class="botoes-form">
+            <button id="botao-salvar" class="botao-form">
+                Salvar
+            </button>
+            <button class="botao-form botao-cancelar">
+                Cancelar
+            </button>
+        </div>
+    </form>
+    <form 
+        class="formulario ff-prompt"
+        [formGroup]="formularioConsulta"
+        *ngIf="formAbertoConsulta">
+        <label for="medicoId">MedicoId:</label>
+        <input required type="text" formControlName="medicoId" class="form-paciente">
+        <label for="pacienteId">PacienteId:</label>
+        <input required type="text" formControlName="pacienteId" class="form-paciente">
+        <label for="data">Data:</label>
+        <input required type="date" formControlName="data" class="form-paciente">
+        <label for="duracaoMin">Duração:</label>
+        <input required type="text" formControlName="duracaoMin" class="form-paciente">
+        
+        <div class="botoes-form">
+            <button id="botao-salvar" class="botao-form">
+                Salvar
+            </button>
+            <button class="botao-form botao-cancelar">
+                Cancelar
+            </button>
+        </div>
+    </form>
+</section>

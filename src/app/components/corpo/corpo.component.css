@@ -1,0 +1,123 @@
+.botao-criar{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 28px;
+    background-color: #6f8576;
+    padding: 1%;
+}
+  
+.botao-criar button {
+  background: #263238;
+  border-radius: 8px;
+  color:#FFFFFF;
+  font-family: 'Prompt';
+  font-weight: 600;
+  font-size: 16px;
+  padding: 8px 16px;
+  line-height: 24px;
+}
+
+.botoes-form {
+  display: flex;
+  flex-direction:row;
+  justify-content: center;
+  align-items: center;
+}
+
+.botao-form {
+  font-family: 'Prompt';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: #FFFFFF;
+  display: flex;
+  justify-content: center;
+  width: 94px;
+  height: 40px;
+  margin-bottom: 0;
+  border-radius: 8px;
+  align-items: center;
+}
+
+.botao-salvar {
+  background: #63B77C;
+}
+
+.botao-cancelar {
+  background: #F89185;
+}
+.botao-desabilitado {
+  background: #6C757D;
+  cursor: default;
+}
+
+.input-invalido {
+  border-color: red!important;
+  margin-bottom: 0!important;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #FFE4D6;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  border-radius: 8px;
+  padding: 24px;
+  margin-right: 25%;
+  margin-left: 25%;
+  margin-bottom: 32px;
+}
+
+.test {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+input {
+  font-weight: 400;
+}
+
+.form-paciente {
+  font-family: 'Prompt';
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  background: #FFFFFF;
+  border: 1px solid #7b6c7d;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 90%;
+  height: 40px;
+  padding-left: 8px;
+  text-decoration: none;
+}
+
+.form-paciente-nascimento {
+  font-family: 'Prompt';
+  font-size: 16px;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  background: #FFFFFF;
+  border: 1px solid #7b6c7d;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 8px;
+}
+
+.formulario label {
+  padding-bottom: 4px;
+}
+
+.botoes-card button{
+  background-color: inherit;
+}
