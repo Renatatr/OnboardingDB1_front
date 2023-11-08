@@ -10,28 +10,32 @@
             Cadastrar nova Consulta
         </button>
     </div>
-    <form 
-        class="formulario ff-prompt"
-        [formGroup]="formularioPaciente"
-        *ngIf="formAbertoPaciente">
-        <label for="nome">Nome:</label>
-        <input required type="text" formControlName="nome" placeholder="Digite o nome" class="form-paciente">
-        <label for="date">Nascimento:</label>
-        <input required type="date" formControlName="nascimento" class="form-paciente-nascimento">
-        <label for="cpf">CPF:</label>
-        <input required type="text" formControlName="cpf" class="form-paciente">
-        <label for="acompanhante">Acompanhante:</label>
-        <input required type="text" formControlName="acompanhante" class="form-paciente">
+    <div 
         
-        <div class="botoes-form">
-            <button id="botao-salvar" class="botao-form">
-                Salvar
-            </button>
-            <button class="botao-form botao-cancelar">
-                Cancelar
-            </button>
-        </div>
-    </form>
+        *ngIf="formAbertoPaciente">
+        <form class="formulario ff-prompt" [formGroup]="formularioPaciente">
+            <label for="nome">Nome:</label>
+            <input required type="text" formControlName="nome" placeholder="Digite o nome" class="form-paciente">
+            <label for="date">Nascimento:</label>
+            <input required type="date" formControlName="nascimento" class="form-paciente-nascimento">
+            <label for="cpf">CPF:</label>
+            <input required type="text" formControlName="cpf" class="form-paciente">
+            <label for="acompanhante">Acompanhante:</label>
+            <input required type="text" formControlName="acompanhante" class="form-paciente">
+
+            <div class="botoes-form">
+                <button id="botao-salvar" class="botao-form">
+                    Salvar
+                </button>
+                <button class="botao-form botao-cancelar">
+                    Cancelar
+                </button>
+            </div>
+        </form>
+        <app-lista-pacientes></app-lista-pacientes>
+    </div>
+
+
     <form 
         class="formulario ff-prompt"
         [formGroup]="formularioMedico"

@@ -44,7 +44,6 @@ export class CorpoComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    this.service.listar();
   }
 
   mostrarOuEsconderFormulario(tipo: string) {

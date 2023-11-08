@@ -1,100 +1,135 @@
-  .lista-tarefas {
-      display: flex;
-      flex-direction: column;
-      margin-top: 10px;
-      justify-content: center;
-      text-align: center;
-      margin-right: 25%;
-      margin-left: 25%;
-      border-radius: 8px;
-  }
+.busca {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+  margin-top: 40px;
+}
 
-  .listagem-tarefas {
-      min-height: 80vh;
-  }
+.busca p {
+  color: #6C757D;
+  font-size: 16px;
+  font-weight: 600;
+  margin-right: 32px;
+}
 
-  .listagem-tarefas h2 {
-      font-size: 32px;
-      font-family: 'Prompt';
-      font-weight: 400;
-      line-height: 48px;
-  }
+#campo-busca::placeholder {
+  color: #6C757D;
+  font-family: 'Prompt';
+  font-size: 16px;
+  padding: 8px 0 8px 8px;
+}
 
-  .ilustracao {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-  }
+.busca input {
+  border: 1px solid #6C757D;
+  border-radius: 8px;
+  font-family: 'Prompt';
+  font-size: 16px;
+  height: 40px;
+  width: 300px;
+  padding-left: 12px;
+}
 
-  h2 {
-      font-size: 32px;
-      margin-right: 88px;
-      margin-left: 40px;
-  }
+.lista-tarefas {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    justify-content: center;
+    text-align: center;
+    margin-right: 25%;
+    margin-left: 25%;
+    border-radius: 8px;
+    background: #F9F0FF;
+}
 
-  button {
-      border-style: solid;
-      border-color: rgb(175, 193, 207);
-      background-color: rgba(245, 245, 245, 0.871);
-      border-radius: 8px;
-      margin-right: 10px;
-      padding: 8px;
-      font-size: 16px;
-      cursor: pointer;
-      font-weight: bold;
-      margin-bottom: 16px;
-      border: none;
-      width: max-content;
-  }
+.listagem-tarefas {
+    min-height: 80vh;
+}
 
-  .botao-editar {
-      margin-right: 16px;
-  }
+.listagem-tarefas h2 {
+    font-size: 32px;
+    font-family: 'Prompt';
+    font-weight: 400;
+    line-height: 48px;
+}
 
-  .botoes-card {
-      display: inline-flex;
-      margin-right: 12px;
-  }
+.ilustracao {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
 
-  .input-invalido {
-      border-color: red !important;
-      margin-bottom: 0 !important;
-  }
+.imagem-paciente {
+  width: 400px;
+}
 
+h2 {
+    font-size: 32px;
+    margin-right: 88px;
+    margin-left: 40px;
+}
 
-  .conteudo {
-      display: flex;
-      justify-content: space-between;
-      align-items: last baseline;
-      margin-top: 24px;
-      margin-bottom: 12px;
-  }
+button {
+    border-style: solid;
+    border-color: rgb(175, 193, 207);
+    background-color: rgba(245, 245, 245, 0.871);
+    border-radius: 8px;
+    margin-right: 10px;
+    padding: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-bottom: 16px;
+    border: none;
+    width: max-content;
+}
 
-  .botoes-card button {
-      background-color: inherit;
-  }
+.botao-editar {
+    margin-right: 16px;
+}
 
-  .card-descricao {
-      grid-area: "card-descricao";
-      font-size: 21px;
-      font-weight: 600;
-      color: #263238;
-      line-height: 24px;
-      margin-left: 16px;
-      margin-right: 16px;
-      text-align: left;
-      word-break: break-word;
-      max-width: 70%;
-      margin-top: 0;
-  }
+.botoes-card {
+    display: inline-flex;
+    margin-right: 12px;
+}
 
-  .categoria- {
-      background: #B2B6FF;
-  }
+.input-invalido {
+    border-color: red !important;
+    margin-bottom: 0 !important;
+}
 
-  .ng-template {
-      text-align: center;
-      margin-top: 48px;
-      margin-top: 96px;
-  }
+.conteudo {
+    display: flex;
+    justify-content: space-between;
+    align-items: last baseline;
+    margin-top: 24px;
+    margin-bottom: 12px;
+}
+
+.botoes-card button {
+    background-color: inherit;
+}
+
+.card-descricao {
+    grid-area: "card-descricao";
+    font-size: 21px;
+    font-weight: 600;
+    color: #263238;
+    line-height: 24px;
+    margin-left: 16px;
+    margin-right: 16px;
+    text-align: left;
+    word-break: break-word;
+    max-width: 70%;
+    margin-top: 0;
+}
+
+.categoria- {
+    background: #B2B6FF;
+}
+
+.ng-template {
+    text-align: center;
+    margin-top: 48px;
+    margin-top: 96px;
+}

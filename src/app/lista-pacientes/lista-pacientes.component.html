@@ -1,31 +1,32 @@
 <section class="listagem-tarefas">
     <div class="ilustracao">
-        <h2>Suas tarefas</h2>
-        <img src="assets/imagens/ilustracao-Tarefas.png"
-            alt="Ilustração de um ambiente com mesa, computador, quadro e um vaso com planta">
+        <h2>Pacientes Cadastrados</h2>
+        <img src="assets/imagens/ilustracao-Pacientes.png"
+            alt="Ilustração de bonecos"
+            class="imagem-paciente">
     </div>
     <div class="busca">
         <p class="ff-prompt">Procurando pacientes</p>
-        <input type="search" id="campo-busca" placeholder="Busque por uma tarefa">
+        <input 
+            type="search" 
+            id="campo-busca" 
+            placeholder="Busque por um paciente"
+            [(ngModel)]="campoBusca"
+            (keyup)="filtrarPacientePorNome(campoBusca)">
     </div>
-    <div>
-        <div class="lista-tarefas card-">
-            <div class="info-card">
-                <p class="categoria-tarefa categoria-">
-                    <img src="assets/icones/.png" alt="Ícone de ">
-                    blá
-                </p>
-                <p class="prioridade-tarefa prioridade-">
-                    blé
-                </p>
-                <p class="status-tarefa">
-                    <!-- <button>
-                    </button> -->
-                </p>
-            </div>
+    <div *ngIf="pacientesFiltrados.length > 0, else semTarefas">
+        <div 
+            class="lista-tarefas"
+            *ngFor="let paciente of pacientesFiltrados; let i = index">
             <div class="conteudo">
                 <p class="card-descricao ff-prompt">
-                    blí
+                    Nome: {{ paciente.nome }}
+                    <br>
+                    Idade: {{ paciente.idade }}
+                    <br>
+                    CPF: {{ paciente.cpf }} 
+                    <br>
+                    Acompanhante: {{ paciente.acompanhante }}
                 </p>
                 <div class="botoes-card">
                     <button class="botao-editar">
@@ -39,6 +40,6 @@
         </div>
     </div>
 </section>
-<!-- <ng-template #semTarefas>
-    <p @messageAnimation class="ng-template ff-prompt">Olá! Ainda não há tarefas por aqui! :)</p>
-</ng-template> -->
+<ng-template #semTarefas>
+    <p class="ng-template ff-prompt">Olá! Ainda não há pacientes cadastrados! :)</p>
+</ng-template>
