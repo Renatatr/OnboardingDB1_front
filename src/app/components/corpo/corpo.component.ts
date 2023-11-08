@@ -104,4 +104,37 @@ export class CorpoComponent implements OnInit {
         break;
     }
   }
+
+  salvarCadastro(tipo: string) {
+    if (this.formularioPaciente.value.id) {
+      //this.editarTarefa();
+    } else {
+      this.criarCadastro(tipo);
+    }
+  }
+
+  criarCadastro(tipo: string) {
+    switch (tipo) {
+      case 'paciente':
+        if (this.formularioPaciente.valid) {
+          const novoPaciente = this.formularioPaciente.value;
+          this.service.criar(novoPaciente);
+          this.resetarFormulario(tipo);
+        }
+        break;
+      case 'medico':
+
+        break;
+      case 'consulta':
+
+        break;
+    
+      default:
+        break;
+    }
+  }
+
+  cancelar(tipo: string) {
+    this.resetarFormulario(tipo);
+  }
 }

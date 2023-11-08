@@ -11,12 +11,11 @@
         </button>
     </div>
     <div 
-        
         *ngIf="formAbertoPaciente">
         <form class="formulario ff-prompt" [formGroup]="formularioPaciente">
             <label for="nome">Nome:</label>
             <input required type="text" formControlName="nome" placeholder="Digite o nome" class="form-paciente">
-            <label for="date">Nascimento:</label>
+            <label for="nascimento">Nascimento:</label>
             <input required type="date" formControlName="nascimento" class="form-paciente-nascimento">
             <label for="cpf">CPF:</label>
             <input required type="text" formControlName="cpf" class="form-paciente">
@@ -24,10 +23,15 @@
             <input required type="text" formControlName="acompanhante" class="form-paciente">
 
             <div class="botoes-form">
-                <button id="botao-salvar" class="botao-form">
-                    Salvar
+                <button
+                    id="botao-salvar"
+                    (click)="salvarCadastro('paciente')"
+                    class="botao-form">
+                    <!-- [ngClass]="habilitarBotao()"
+                    [disabled]="!formulario.valid"> -->
+                      Salvar
                 </button>
-                <button class="botao-form botao-cancelar">
+                <button (click)="cancelar('paciente')" class="botao-form botao-cancelar">
                     Cancelar
                 </button>
             </div>

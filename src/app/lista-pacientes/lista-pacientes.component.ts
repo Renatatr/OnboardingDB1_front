@@ -33,5 +33,4 @@ export class ListaPacientesComponent implements OnInit {
       this.pacientesFiltrados = this.listaPacientes;
     }
   }
-
 }
