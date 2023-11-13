@@ -5,11 +5,11 @@ import { ListaPacientesComponent } from './lista-pacientes/lista-pacientes.compo
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'listaPacientes',
+    redirectTo: '',
     pathMatch: 'full',
   },
   {
-    path: 'listaPacientes',
+    path: '',
     component: ListaPacientesComponent,
   }
 ];

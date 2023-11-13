@@ -26,9 +26,9 @@
                 <button
                     id="botao-salvar"
                     (click)="salvarCadastro('paciente')"
-                    class="botao-form">
-                    <!-- [ngClass]="habilitarBotao()"
-                    [disabled]="!formulario.valid"> -->
+                    class="botao-form"
+                    [ngClass]="habilitarBotao()"
+                    [disabled]="!formularioPaciente.valid">
                       Salvar
                 </button>
                 <button (click)="cancelar('paciente')" class="botao-form botao-cancelar">
@@ -54,7 +54,11 @@
         <input required type="text" formControlName="crm" class="form-paciente">
         
         <div class="botoes-form">
-            <button id="botao-salvar" class="botao-form">
+            <button 
+                id="botao-salvar" 
+                class="botao-form"
+                [ngClass]="habilitarBotao()"
+                [disabled]="!formularioPaciente.valid">
                 Salvar
             </button>
             <button class="botao-form botao-cancelar">
@@ -76,7 +80,11 @@
         <input required type="text" formControlName="duracaoMin" class="form-paciente">
         
         <div class="botoes-form">
-            <button id="botao-salvar" class="botao-form">
+            <button 
+                id="botao-salvar" 
+                class="botao-form"
+                [ngClass]="habilitarBotao()"
+                [disabled]="!formularioPaciente.valid">
                 Salvar
             </button>
             <button class="botao-form botao-cancelar">

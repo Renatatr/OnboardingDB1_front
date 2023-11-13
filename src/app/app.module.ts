@@ -10,14 +10,20 @@ import { CorpoComponent } from './components/corpo/corpo.component';
 import { ListaPacientesComponent } from './lista-pacientes/lista-pacientes.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CalendarioConsultasComponent } from './calendario-consultas/calendario-consultas.component';
+import { CommonModule, registerLocaleData } from '@angular/common';
+import localePT from '@angular/common/locales/pt';
 
+registerLocaleData(localePT);
 @NgModule({
   declarations: [
     AppComponent,
     CabecalhoComponent,
     RodapeComponent,
     CorpoComponent,
-    ListaPacientesComponent
+    ListaPacientesComponent,
+    CalendarioConsultasComponent,
+    CalendarioConsultasComponent
   ],
   imports: [
     BrowserModule,
@@ -26,6 +32,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

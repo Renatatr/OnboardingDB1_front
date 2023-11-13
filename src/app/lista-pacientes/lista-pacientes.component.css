@@ -30,23 +30,26 @@
   padding-left: 12px;
 }
 
-.lista-tarefas {
-    display: flex;
-    flex-direction: column;
-    margin-top: 10px;
+.lista-pacientes {
+    margin: 10px;
     justify-content: center;
     text-align: center;
-    margin-right: 25%;
-    margin-left: 25%;
     border-radius: 8px;
     background: #F9F0FF;
 }
 
-.listagem-tarefas {
+.painel-pacientes {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    gap: 1em;
+    margin: 30px;
+}
+
+.listagem-pacientes {
     min-height: 80vh;
 }
 
-.listagem-tarefas h2 {
+.listagem-pacientes h2 {
     font-size: 32px;
     font-family: 'Prompt';
     font-weight: 400;
@@ -112,10 +115,10 @@ button {
 
 .card-descricao {
     grid-area: "card-descricao";
-    font-size: 21px;
-    font-weight: 600;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 22px;
+    font-weight: 400;
     color: #263238;
-    line-height: 24px;
     margin-left: 16px;
     margin-right: 16px;
     text-align: left;
@@ -132,4 +135,41 @@ button {
     text-align: center;
     margin-top: 48px;
     margin-top: 96px;
+}
+
+@media screen and (max-width: 1200px) {
+    .painel-pacientes {
+        grid-template-columns: 45% 45%;
+    }
+
+    .conteudo {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .ilustracao {
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .painel-pacientes {
+        grid-template-columns: 100% ;
+    }
+
+    .busca {
+        margin: 40px;
+        flex-direction: column;
+    }
+
+    /* .lista-pacientes {
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 48px;
+    } */
 }

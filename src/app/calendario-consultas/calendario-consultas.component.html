@@ -1,0 +1,33 @@
+<div class="calendario-titulo">
+    <div>
+        <button (click)="alterarMes(-1)">ant.</button>
+    </div>
+    <div class="calendario-titulo-mes-ano">
+        {{dataAtual | date : 'MMMM yyyy' : '' : 'pt-BR'}}
+    </div>
+    <div>
+        <button (click)="alterarMes(+1)">prox.</button>
+    </div>
+</div>
+<div class="calendario-dias">
+    <ng-container *ngFor="let dia of diasCalendario; let i = index">
+        <div class="calendario-dias-semana" *ngIf="i < 7">
+            <strong>{{ dia | date: 'EEEE' : '' : 'pt-BR'}}</strong>
+        </div>
+    </ng-container>
+    
+    <div *ngFor="let dia of diasCalendario; let i = index"
+        class="calendario-dia"
+        [class.calendario-quebrar-linha]="i % 7 === 0"
+        [class.calendario-dia-nao-faz-parte-mes-atual]="dataAtual.getMonth() !== dia.getMonth()">
+        <div class="dia-mes">
+            {{dia | date : 'dd'}}
+        </div>
+        <div *ngIf="consultas.length > 0 && dia == consultas[i].data" >
+            teste1
+        </div>
+        <div>
+            teste2
+        </div>
+    </div>
+</div>

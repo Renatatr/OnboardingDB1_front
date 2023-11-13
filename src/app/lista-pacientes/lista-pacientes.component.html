@@ -1,4 +1,4 @@
-<section class="listagem-tarefas">
+<section class="listagem-pacientes">
     <div class="ilustracao">
         <h2>Pacientes Cadastrados</h2>
         <img src="assets/imagens/ilustracao-Pacientes.png"
@@ -14,10 +14,10 @@
             [(ngModel)]="campoBusca"
             (keyup)="filtrarPacientePorNome(campoBusca)">
     </div>
-    <div *ngIf="pacientesFiltrados.length > 0, else semTarefas">
+    <div *ngIf="pacientesFiltrados.length > 0, else semTarefas" class="painel-pacientes">
         <div 
-            class="lista-tarefas"
-            *ngFor="let paciente of pacientesFiltrados; let i = index">
+            class="lista-pacientes"
+            *ngFor="let paciente of pacientesFiltrados">
             <div class="conteudo">
                 <p class="card-descricao ff-prompt">
                     Nome: {{ paciente.nome }}
@@ -29,7 +29,9 @@
                     Acompanhante: {{ paciente.acompanhante }}
                 </p>
                 <div class="botoes-card">
-                    <button class="botao-editar">
+                    <button 
+                        class="botao-editar"
+                        (click)="carregarParaEditar(paciente.id, 'paciente')">
                         <img src="assets/icones/icone-editar.png" alt="Ícone de editar">
                     </button>
                     <button class="botao-deletar">

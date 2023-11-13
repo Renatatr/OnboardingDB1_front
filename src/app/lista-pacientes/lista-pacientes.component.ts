@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PacienteService } from '../service/paciente.service';
 import { Paciente } from '../interface/paciente';
 import { Subscription } from 'rxjs';
+import { CorpoComponent } from '../components/corpo/corpo.component';
 
 @Component({
   selector: 'app-lista-pacientes',
@@ -32,5 +33,9 @@ export class ListaPacientesComponent implements OnInit {
     } else {
       this.pacientesFiltrados = this.listaPacientes;
     }
+  }
+
+  carregarParaEditar(id: number, tipo: string){
+    // ????
   }
 }

@@ -1,0 +1,45 @@
+.calendario-dias {
+    display: grid;
+    margin-top: 1px;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    padding: 5px;
+}
+
+.calendario-dias .calendario-dia {
+    border: 1px solid #ccc;
+    font-size: 20px;
+    padding: 5px;
+}
+
+.calendario-titulo {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    font-family: 'Prompt';
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.calendario-titulo  button {
+    background: rgb(46, 70, 55);
+    border-radius: 4px;
+    color:#ffffff;
+    font-family: 'Prompt';
+    font-size: 12px;
+    padding: 1px 8px;
+    line-height: 20px;
+}
+
+
+.calendario-dias-semana {
+    border: 3px solid #146e5f;
+    font-size: 20px;
+    padding: 2px;
+    color: #146e5f;
+}
+
+.dia-mes {
+    display: flex;
+    font-size: 18px;
+}

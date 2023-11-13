@@ -46,6 +46,12 @@ export class CorpoComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  habilitarBotao(): string {
+    if (this.formularioPaciente.valid || this.formularioMedico.valid || this.formularioConsulta.valid) {
+      return 'botao-salvar';
+    } else return 'botao-desabilitado';
+  }
+
   mostrarOuEsconderFormulario(tipo: string) {
     switch (tipo) {
       case 'paciente':
@@ -107,7 +113,7 @@ export class CorpoComponent implements OnInit {
 
   salvarCadastro(tipo: string) {
     if (this.formularioPaciente.value.id) {
-      //this.editarTarefa();
+      this.editarPaciente(tipo);
     } else {
       this.criarCadastro(tipo);
     }
@@ -134,7 +140,55 @@ export class CorpoComponent implements OnInit {
     }
   }
 
+  editarPaciente(tipo: string) {
+    switch (tipo) {
+      case 'paciente':
+        if (this.formularioPaciente.valid) {
+          const pacienteEditado = this.formularioPaciente.value;
+          this.service.editar(pacienteEditado, true);
+          this.resetarFormulario(tipo);
+        }
+        break;
+      case 'medico':
+
+        break;
+      case 'consulta':
+
+        break;
+    
+      default:
+        break;
+    }
+  }
+
   cancelar(tipo: string) {
     this.resetarFormulario(tipo);
   }
+
+  carregarParaEditar(id: number, tipo: string) {
+    switch (tipo) {
+      case 'paciente':
+        this.service.buscarPorId(id!).subscribe((x) => {
+          this.formularioPaciente = this.formBuilder.group({
+            id: [x.id],
+            nome: [x.nome],
+            nascimento: [x.nascimento],
+            cpf: [x.cpf],
+            acompanhante: [x.acompanhante],
+          });
+        });
+        this.formAbertoPaciente = true;
+        break;
+      case 'medico':
+
+        break;
+      case 'consulta':
+
+        break;
+    
+      default:
+        break;
+    }
+  }
+
 }

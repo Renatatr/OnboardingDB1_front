@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { BehaviorSubject, ignoreElements } from 'rxjs';
+import { BehaviorSubject, Observable, ignoreElements } from 'rxjs';
 
 import { Paciente } from '../interface/paciente';
 
@@ -39,5 +39,24 @@ export class PacienteService {
       pacientes.unshift(novoPaciente);
       this.pacienteSubject.next(pacientes);
     });
+  }
+
+  editar(paciente: Paciente, atualizarSubject: boolean): void {
+    const url = `${this.API}/${paciente.id}`;
+    this.http.put<Paciente>(url, paciente).subscribe(pacienteEditado => {
+      if (atualizarSubject) {
+        const paciente = this.pacienteSubject.getValue()
+        const index = paciente.findIndex(x => x.id === pacienteEditado.id)
+        if (index !== -1) {
+          paciente[index] = pacienteEditado
+          this.pacienteSubject.next(paciente)
+        }
+      }
+    });
+  }
+
+  buscarPorId(id: number): Observable<Paciente> {
+    const url = `${this.API}/${id}`;
+    return this.http.get<Paciente>(url);
   }
 }
