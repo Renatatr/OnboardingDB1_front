@@ -11,8 +11,6 @@ import { PacienteService } from 'src/app/service/paciente.service';
 })
 export class PacientesComponent implements OnInit {
   formAbertoPaciente: boolean = false;
-  formAbertoMedico: boolean = false;
-  formAbertoConsulta: boolean = false;
 
   formularioPaciente: FormGroup = this.formBuilder.group({
     id: [0],
@@ -82,23 +80,10 @@ export class PacientesComponent implements OnInit {
   }
 
   editarPaciente(tipo: string) {
-    switch (tipo) {
-      case 'paciente':
-        if (this.formularioPaciente.valid) {
-          const pacienteEditado = this.formularioPaciente.value;
-          this.service.editar(pacienteEditado, true);
-          this.resetarFormulario();
-        }
-        break;
-      case 'medico':
-
-        break;
-      case 'consulta':
-
-        break;
-    
-      default:
-        break;
+    if (this.formularioPaciente.valid) {
+      const pacienteEditado = this.formularioPaciente.value;
+      this.service.editar(pacienteEditado, true);
+      this.resetarFormulario();
     }
   }
 
@@ -107,28 +92,15 @@ export class PacientesComponent implements OnInit {
   }
 
   carregarParaEditar(id: number, tipo: string) {
-    switch (tipo) {
-      case 'paciente':
-        this.service.buscarPorId(id!).subscribe((x) => {
-          this.formularioPaciente = this.formBuilder.group({
-            id: [x.id],
-            nome: [x.nome],
-            nascimento: [x.nascimento],
-            cpf: [x.cpf],
-            acompanhante: [x.acompanhante],
-          });
-        });
-        this.formAbertoPaciente = true;
-        break;
-      case 'medico':
-
-        break;
-      case 'consulta':
-
-        break;
-    
-      default:
-        break;
-    }
+    this.service.buscarPorId(id!).subscribe((x) => {
+      this.formularioPaciente = this.formBuilder.group({
+        id: [x.id],
+        nome: [x.nome],
+        nascimento: [x.nascimento],
+        cpf: [x.cpf],
+        acompanhante: [x.acompanhante],
+      });
+    });
+    this.formAbertoPaciente = true;
   }
 }

@@ -56,10 +56,10 @@ export class MedicosComponent implements OnInit {
   resetarFormulario() {
     this.formularioMedico.reset({
       nome: '',
-      statusFinalizadoPaciente: false,
-      nascimento: '',
+      statusFinalizadoMedico: false,
+      especialidade: '',
       cpf: '',
-      acompanhante: '',
+      crm: '',
     });
   }
 

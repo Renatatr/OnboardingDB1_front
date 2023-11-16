@@ -6,8 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CabecalhoComponent } from './components/cabecalho/cabecalho.component';
 import { RodapeComponent } from './components/rodape/rodape.component';
-import { CorpoComponent } from './components/corpo/corpo.component';
-import { ListaPacientesComponent } from './lista-pacientes/lista-pacientes.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CalendarioConsultasComponent } from './calendario-consultas/calendario-consultas.component';
@@ -23,8 +21,6 @@ registerLocaleData(localePT);
     AppComponent,
     CabecalhoComponent,
     RodapeComponent,
-    CorpoComponent,
-    ListaPacientesComponent,
     CalendarioConsultasComponent,
     CalendarioConsultasComponent,
     PacientesComponent,

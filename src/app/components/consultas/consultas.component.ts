@@ -46,11 +46,11 @@ export class ConsultasComponent implements OnInit {
 
   resetarFormulario() {
     this.formularioConsulta.reset({
-      nome: '',
-      statusFinalizadoPaciente: false,
-      nascimento: '',
-      cpf: '',
-      acompanhante: '',
+      medicoId: '',
+      pacienteId: '',
+      statusFinalizadoConsulta: false,
+      data: '',
+      duracaoMin: '',
     });
   }
 
