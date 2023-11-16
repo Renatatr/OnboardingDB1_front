@@ -13,6 +13,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CalendarioConsultasComponent } from './calendario-consultas/calendario-consultas.component';
 import { CommonModule, registerLocaleData } from '@angular/common';
 import localePT from '@angular/common/locales/pt';
+import { PacientesComponent } from './components/pacientes/pacientes.component';
+import { MedicosComponent } from './components/medicos/medicos.component';
+import { ConsultasComponent } from './components/consultas/consultas.component';
 
 registerLocaleData(localePT);
 @NgModule({
@@ -23,7 +26,10 @@ registerLocaleData(localePT);
     CorpoComponent,
     ListaPacientesComponent,
     CalendarioConsultasComponent,
-    CalendarioConsultasComponent
+    CalendarioConsultasComponent,
+    PacientesComponent,
+    MedicosComponent,
+    ConsultasComponent
   ],
   imports: [
     BrowserModule,

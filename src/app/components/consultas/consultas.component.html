@@ -1,0 +1,71 @@
+<section class="criar-tarefa">
+    <form 
+        class="formulario ff-prompt"
+        [formGroup]="formularioConsulta">
+        <label for="medicoId">MedicoId:</label>
+        <input required type="text" formControlName="medicoId" class="form-paciente">
+        <label for="pacienteId">PacienteId:</label>
+        <input required type="text" formControlName="pacienteId" class="form-paciente">
+        <label for="data">Data:</label>
+        <input required type="date" formControlName="data" class="form-paciente-nascimento">
+        <label for="duracaoMin">Duração:</label>
+        <input required type="text" formControlName="duracaoMin" class="form-paciente">
+        
+        <div class="botoes-form">
+            <button 
+                id="botao-salvar" 
+                class="botao-form"
+                [ngClass]="habilitarBotao()"
+                [disabled]="!formularioConsulta.valid">
+                Salvar
+            </button>
+            <button class="botao-form botao-cancelar">
+                Cancelar
+            </button>
+        </div>
+    </form>
+</section>
+<section class="listagem-pacientes">
+<div class="ilustracao">
+    <h2>Consultas Cadastradas</h2>
+    <img src="assets/imagens/ilustracao-Consultas.png"
+        alt="Ilustração de Consulta e paciente"
+        class="imagem-paciente">
+</div>
+<div class="busca">
+    <p class="ff-prompt">Procurando médicos</p>
+    <input 
+        type="search" 
+        id="campo-busca" 
+        placeholder="Busque por um paciente"
+        [(ngModel)]="campoBusca">
+</div>
+<div *ngIf="consultasFiltradas.length > 0, else semTarefas" class="painel-pacientes">
+    <div 
+        class="lista-pacientes"
+        *ngFor="let consulta of consultasFiltradas">
+        <div class="conteudo">
+            <p class="card-descricao ff-prompt">
+                Data: {{ consulta.data }}
+                <br>
+                Duração: {{ consulta.duracaoMin }}
+                <br>
+                MedicoID: {{ consulta.medicoId }} 
+                <br>
+            </p>
+            <div class="botoes-card">
+                <button 
+                    class="botao-editar">
+                    <img src="assets/icones/icone-editar.png" alt="Ícone de editar">
+                </button>
+                <button class="botao-deletar">
+                    <img src="assets/icones/icone-excluir.png" alt="Ícone de excluir">
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+<ng-template #semTarefas>
+<p class="ng-template ff-prompt">Olá! Ainda não há médicos cadastrados! :)</p>
+</ng-template>

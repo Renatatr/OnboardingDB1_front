@@ -1,5 +1,5 @@
 .cabecalho {
-    margin-bottom: 24px;
+    margin-bottom: 100px;
     height: 150px;
     display: flex;
     flex-direction: column;
@@ -7,7 +7,7 @@
 }
 
 .titulo {
-  margin-top: 48px;
+  margin-top: 40px;
   font-family: 'Prompt';
   font-style: normal;
   font-size: 48px;
@@ -17,3 +17,38 @@
   line-height: 73px;
 }
   
+.botao-cabecalho {
+  margin-top: 60px;
+  display: flex;
+  background-color: #6f8576;
+  height: 100px;
+  justify-content:space-between;
+}
+
+.botao-criar {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2px;
+  padding: 1%;
+}
+
+.botao-criar button {
+  background: #263238;
+  border-radius: 8px;
+  color: #FFFFFF;
+  font-family: 'Prompt';
+  font-weight: 600;
+  font-size: 16px;
+  padding: 8px 16px;
+  line-height: 24px;
+}
+
+.botao-home {
+  background: #4e4e3e;
+  color: #eff2f3;
+  font-family: 'Prompt';
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 8px 16px;
+  margin: 15px;
+}

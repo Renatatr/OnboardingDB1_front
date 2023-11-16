@@ -1,17 +1,32 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ListaPacientesComponent } from './lista-pacientes/lista-pacientes.component';
+import { CalendarioConsultasComponent } from './calendario-consultas/calendario-consultas.component';
+import { PacientesComponent } from './components/pacientes/pacientes.component';
+import { MedicosComponent } from './components/medicos/medicos.component';
+import { ConsultasComponent } from './components/consultas/consultas.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '',
+    redirectTo: 'home',
     pathMatch: 'full',
   },
   {
-    path: '',
-    component: ListaPacientesComponent,
-  }
+    path: 'home',
+    component: CalendarioConsultasComponent,
+  },
+  {
+    path: 'pacientes',
+    component: PacientesComponent,
+  },
+  {
+    path: 'medicos',
+    component: MedicosComponent,
+  },
+  {
+    path: 'consultas',
+    component: ConsultasComponent,
+  },
 ];
 
 @NgModule({

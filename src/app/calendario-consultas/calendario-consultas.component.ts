@@ -22,8 +22,6 @@ export class CalendarioConsultasComponent implements OnInit {
     this.tarefasSubscrition = this.service.consulta$.subscribe(x => {
       this.consultas = x;
     })
-    console.log(this.consultas);
-    
   }
 
   construirCalendario() {
@@ -61,4 +59,8 @@ export class CalendarioConsultasComponent implements OnInit {
       this.construirCalendario();
   }
 
+  abrirModal(){
+    console.log('teste');
+    
+  }
 }

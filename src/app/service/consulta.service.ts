@@ -7,18 +7,14 @@ import { Consulta } from '../interface/consulta';
   providedIn: 'root'
 })
 export class ConsultaService {
-  private readonly API = 'https://localhost:44361/Consulta/selecionaTodos';  
+  private readonly API = 'https://localhost:44361/Consulta/selecionarTodos';  
   private consultaSubject = new BehaviorSubject<Consulta[]>([]);
   consulta$ = this.consultaSubject.asObservable();
 
   constructor(private http: HttpClient) { }
 
   listar(): void {
-    let params = new HttpParams().appendAll({
-      _sort: 'id',
-      _order: 'desc',
-    });
-    this.http.get<Consulta[]>(this.API, { params }).subscribe(x => {
+    this.http.get<Consulta[]>(this.API).subscribe(x => {
       let consultasTemporarias = this.consultaSubject.getValue();
       consultasTemporarias = consultasTemporarias.concat(x);
       this.consultaSubject.next(consultasTemporarias);

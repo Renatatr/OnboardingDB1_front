@@ -1,3 +1,8 @@
+* {
+    background-color: #ffffff2c;
+    background-image: "../../assets/imagens/ilustracao-Medicos.png";
+}
+
 .calendario-dias {
     display: grid;
     margin-top: 1px;
@@ -19,6 +24,7 @@
     font-family: 'Prompt';
     font-size: 20px;
     font-weight: 600;
+    margin-top: 150px;
 }
 
 .calendario-titulo  button {
@@ -37,6 +43,12 @@
     font-size: 20px;
     padding: 2px;
     color: #146e5f;
+    border-radius: 5px;
+}
+
+.calendario-dia {
+    border-radius: 5px;
+    height: 150px;
 }
 
 .dia-mes {

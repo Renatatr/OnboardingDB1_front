@@ -1,3 +1,4 @@
+<!-- <img src="../../assets/imagens/fundo-cabecalho.png" alt=""> -->
 <div class="calendario-titulo">
     <div>
         <button (click)="alterarMes(-1)">ant.</button>
@@ -23,11 +24,10 @@
         <div class="dia-mes">
             {{dia | date : 'dd'}}
         </div>
-        <div *ngIf="consultas.length > 0 && dia == consultas[i].data" >
-            teste1
-        </div>
-        <div>
-            teste2
-        </div>
+        <div *ngFor="let consulta of consultas"> 
+            <div *ngIf="consultas.length > 0 && (dia | date: 'yyyy/MM/dd') === (consulta.data | date: 'yyyy/MM/dd')" >
+                <i class="bi bi-envelope" (click)="abrirModal()"></i>
+            </div>
+        </div> 
     </div>
 </div>

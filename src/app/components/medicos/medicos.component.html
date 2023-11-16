@@ -1,0 +1,70 @@
+<section class="criar-tarefa">
+    <form class="formulario ff-prompt" [formGroup]="formularioMedico">
+        <label for="nome">Nome:</label>
+        <input required type="text" formControlName="nome" placeholder="Digite o nome" class="form-paciente">
+        <label for="especialidade">Especialidade:</label>
+        <input required type="text" formControlName="especialidade" class="form-paciente">
+        <label for="cpf">CPF:</label>
+        <input required type="text" formControlName="cpf" class="form-paciente">
+        <label for="crm">CRM:</label>
+        <input required type="text" formControlName="crm" class="form-paciente">
+        
+        <div class="botoes-form">
+            <button 
+                id="botao-salvar" 
+                class="botao-form"
+                [ngClass]="habilitarBotao()"
+                [disabled]="!formularioMedico.valid">
+                Salvar
+            </button>
+            <button class="botao-form botao-cancelar">
+                Cancelar
+            </button>
+        </div>
+    </form>
+</section>
+<section class="listagem-pacientes">
+<div class="ilustracao">
+    <h2>Medicos Cadastrados</h2>
+    <img src="assets/imagens/ilustracao-Medicos.png"
+        alt="Ilustração de Medico e paciente"
+        class="imagem-paciente">
+</div>
+<div class="busca">
+    <p class="ff-prompt">Procurando médicos</p>
+    <input 
+        type="search" 
+        id="campo-busca" 
+        placeholder="Busque por um paciente"
+        [(ngModel)]="campoBusca"
+        (keyup)="filtrarMedicoPorNome(campoBusca)">
+</div>
+<div *ngIf="medicosFiltrados.length > 0, else semTarefas" class="painel-pacientes">
+    <div 
+        class="lista-pacientes"
+        *ngFor="let medico of medicosFiltrados">
+        <div class="conteudo">
+            <p class="card-descricao ff-prompt">
+                Nome: {{ medico.nome }}
+                <br>
+                Especialidade: {{ medico.especialidade }}
+                <br>
+                CPF: {{ medico.cpf }} 
+                <br>
+            </p>
+            <div class="botoes-card">
+                <button 
+                    class="botao-editar">
+                    <img src="assets/icones/icone-editar.png" alt="Ícone de editar">
+                </button>
+                <button class="botao-deletar">
+                    <img src="assets/icones/icone-excluir.png" alt="Ícone de excluir">
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+<ng-template #semTarefas>
+<p class="ng-template ff-prompt">Olá! Ainda não há médicos cadastrados! :)</p>
+</ng-template>
