@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { BehaviorSubject, Observable, ignoreElements } from 'rxjs';
+import { BehaviorSubject, Observable, Subject, ignoreElements, tap } from 'rxjs';
 
 import { Paciente } from '../interface/paciente';
 
@@ -11,22 +11,15 @@ export class PacienteService {
   private readonly API = 'https://localhost:44361/Paciente';  
   private pacienteSubject = new BehaviorSubject<Paciente[]>([]);
   paciente$ = this.pacienteSubject.asObservable();
+  private pacienteAtualizadoSubject = new Subject<void>();
 
   constructor(private http: HttpClient) { }
 
-  listar(): void {
-    let params = new HttpParams().appendAll({
-      _sort: 'id',
-      _order: 'desc',
-    });
-    this.http.get<Paciente[]>(this.API+'/selecionaTodos', { params }).subscribe(x => {
-      let pacientesTemporarios = this.pacienteSubject.getValue();
-      pacientesTemporarios = pacientesTemporarios.concat(x);
-      this.pacienteSubject.next(pacientesTemporarios);
-    });
+  listar(): Observable<Paciente[]> {
+    return this.http.get<Paciente[]>(this.API+'/selecionaTodos');
   }
 
-  criar(paciente: Paciente): void {
+  criar(paciente: Paciente): Observable<Paciente> {
     const pacienteCorreto: any = {}
     pacienteCorreto.acompanhante = paciente.acompanhante;
     pacienteCorreto.nascimento = paciente.nascimento;
@@ -34,11 +27,16 @@ export class PacienteService {
     pacienteCorreto.cpf = paciente.cpf;
     pacienteCorreto.id = 0;
     
-    this.http.post<Paciente>(this.API, pacienteCorreto).subscribe(novoPaciente => {
-      const pacientes = this.pacienteSubject.getValue();
-      pacientes.unshift(novoPaciente);
-      this.pacienteSubject.next(pacientes);
-    });
+    return this.http.post<Paciente>(this.API, pacienteCorreto)
+      .pipe(
+        tap(() => {
+          this.pacienteAtualizadoSubject.next(); // Notifica os observadores quando os dados são atualizados
+        })
+      );
+  }
+
+  getDadosAtualizadosObservable(): Observable<void> {
+    return this.pacienteAtualizadoSubject.asObservable();
   }
 
   editar(paciente: Paciente, atualizarSubject: boolean): void {

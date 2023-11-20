@@ -32,8 +32,7 @@ export class MedicosComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    this.service.listar();
-    this.tarefasSubscrition = this.service.medico$.subscribe(x => {
+    this.service.listar().subscribe(x => {
       this.listaMedicos = x;
       this.medicosFiltrados = x;
   })}

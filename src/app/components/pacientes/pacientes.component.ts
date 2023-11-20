@@ -32,11 +32,17 @@ export class PacientesComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    this.service.listar();
-    this.tarefasSubscrition = this.service.paciente$.subscribe(x => {
+    this.atualizarDados();
+    this.service.getDadosAtualizadosObservable().subscribe(() => {
+      this.atualizarDados();
+  })}
+
+  atualizarDados() {
+    this.service.listar().subscribe(x => {
       this.listaPacientes = x;
       this.pacientesFiltrados = x;
-  })}
+    })
+  }
   
   filtrarPacientePorNome(nome: string){
     this.campoBusca = nome.trim().toLocaleLowerCase();
@@ -70,11 +76,12 @@ export class PacientesComponent implements OnInit {
       this.criarCadastro();
     }
   }
-
   criarCadastro() {
     if (this.formularioPaciente.valid) {
       const novoPaciente = this.formularioPaciente.value;
-      this.service.criar(novoPaciente);
+      this.service.criar(novoPaciente).subscribe(() => {
+        console.log('Paciente Criado!');
+      })
       this.resetarFormulario();
     }
   }

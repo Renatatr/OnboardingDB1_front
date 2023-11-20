@@ -17,11 +17,10 @@ export class CalendarioConsultasComponent implements OnInit {
   constructor(private service: ConsultaService) { }
 
   ngOnInit(): void {
-    this.service.listar();
-    this.construirCalendario();
-    this.tarefasSubscrition = this.service.consulta$.subscribe(x => {
+    this.service.listar().subscribe(x => {
       this.consultas = x;
     })
+    this.construirCalendario();
   }
 
   construirCalendario() {

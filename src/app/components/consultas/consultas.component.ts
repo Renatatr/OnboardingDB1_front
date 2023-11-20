@@ -32,8 +32,7 @@ export class ConsultasComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.service.listar();
-    this.tarefasSubscrition = this.service.consulta$.subscribe(x => {
+    this.service.listar().subscribe(x => {
       this.listaConsultas = x;
       this.consultasFiltradas = x;
   })}
