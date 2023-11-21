@@ -14,6 +14,8 @@ import localePT from '@angular/common/locales/pt';
 import { PacientesComponent } from './components/pacientes/pacientes.component';
 import { MedicosComponent } from './components/medicos/medicos.component';
 import { ConsultasComponent } from './components/consultas/consultas.component';
+import { ModalComponent } from './modal/modal.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 registerLocaleData(localePT);
 @NgModule({
@@ -25,7 +27,8 @@ registerLocaleData(localePT);
     CalendarioConsultasComponent,
     PacientesComponent,
     MedicosComponent,
-    ConsultasComponent
+    ConsultasComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +37,8 @@ registerLocaleData(localePT);
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    CommonModule
+    CommonModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
