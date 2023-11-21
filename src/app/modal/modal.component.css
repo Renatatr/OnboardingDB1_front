@@ -1,9 +1,29 @@
 .container {
-    padding: 0;
-    background-color: black;
+    padding: 10px;
+    background-color: rgba(133, 165, 202, 0.63);
+    color: black;
+    border-radius: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+button {
+    display: flex;
+    font-size: 18px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 400;
+    border-radius: 10px;
+    padding: 5px;
+    margin: 8px;
+    padding-left: 30px;
+    padding-right: 30px;
+    background-color: rgb(44, 56, 70);
     color: white;
 }
 
-.custom-modal {
-    background-color: black;
+.botao-modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

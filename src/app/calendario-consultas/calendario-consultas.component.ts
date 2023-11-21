@@ -67,8 +67,8 @@ export class CalendarioConsultasComponent implements OnInit {
   abrirModal(consultaModal: Consulta){
     const dialogRef = this.dialog.open(ModalComponent, {
       width: '400px', 
-      height: '400px',
-      panelClass: ['container', 'custom-modal'],      
+      height: '200px',
+      panelClass: ['custom-modal'],      
     });
 
     const dadosModal: Consulta = {

@@ -1,6 +1,5 @@
 * {
-    background-color: #ffffff2c;
-    background-image: "../../assets/imagens/ilustracao-Medicos.png";
+    /* background-image: url('../../assets/imagens/fundo-cabecalho.png');   */
 }
 
 .calendario-dias {
@@ -9,6 +8,7 @@
     grid-template-columns: repeat(7, 1fr);
     text-align: center;
     padding: 5px;
+    background-color: #77835d28;  
 }
 
 .calendario-dias .calendario-dia {

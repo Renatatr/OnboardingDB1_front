@@ -1,6 +1,11 @@
-<section class="container">
-    <div>PacienteId: {{modalData.pacienteId}} </div>
-    <div>MedicoId: {{modalData.medicoId}} </div>
-    <div>Duração: {{modalData.duracaoMin}} </div>
-    <div>Data: {{(modalData.data | date: 'dd/MM/YYYY')}} </div>
+<section [@shakeAnimation]="animationState">
+    <section class="container">
+        <div>PacienteId: {{modalData.pacienteId}} </div>
+        <div>MedicoId: {{modalData.medicoId}} </div>
+        <div>Duração: {{modalData.duracaoMin}} </div>
+        <div>Data: {{(modalData.data | date: 'dd/MM/YYYY')}} </div>
+    </section>
+    <div class="botao-modal">
+        <button (click)="onButtonClick()">Concluir</button>
+    </div>
 </section>
