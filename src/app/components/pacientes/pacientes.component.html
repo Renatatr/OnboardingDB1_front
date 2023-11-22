@@ -1,7 +1,21 @@
 <section class="criar-tarefa">
         <form class="formulario ff-prompt" [formGroup]="formularioPaciente">
-            <label for="nome">Nome:</label>
-            <input required type="text" formControlName="nome" placeholder="Digite o nome" class="form-paciente">
+            <label for="nome">Nome:</label>  
+            <input 
+                name="nome" 
+                id="nome"
+                required 
+                type="text" 
+                formControlName="nome" 
+                placeholder="Digite o nome" 
+                class="form-paciente"
+                minlength="3"/>
+            <div *ngIf="(formularioPaciente.get('nome')?.invalid && formularioPaciente.get('nome')?.touched) || formularioPaciente.get('nome')?.dirty">
+                <app-mensagem *ngIf="formularioPaciente.get('nome')?.errors?.['required']" mensagem="O campo deve ser preenchido"></app-mensagem>
+                <app-mensagem *ngIf="formularioPaciente.get('nome')?.errors?.['minlength']" mensagem="O nome deve ter ao menos 3 caracteres"></app-mensagem>
+            </div>
+
+                  
             <label for="nascimento">Nascimento:</label>
             <input required type="date" formControlName="nascimento" class="form-paciente-nascimento">
             <label for="cpf">CPF:</label>
@@ -12,7 +26,7 @@
             <div class="botoes-form">
                 <button
                     id="botao-salvar"
-                    (click)="salvarCadastro('paciente')"
+                    (click)="salvarCadastro()"
                     class="botao-form"
                     [ngClass]="habilitarBotao()"
                     [disabled]="!formularioPaciente.valid">
@@ -57,10 +71,12 @@
                 <div class="botoes-card">
                     <button 
                         class="botao-editar"
-                        (click)="carregarParaEditar(paciente.id, 'paciente')">
+                        (click)="carregarParaEditar(paciente.id)">
                         <img src="assets/icones/icone-editar.png" alt="Ícone de editar">
                     </button>
-                    <button class="botao-deletar">
+                    <button 
+                        class="botao-deletar" 
+                        (click)="excluirPaciente(paciente)">
                         <img src="assets/icones/icone-excluir.png" alt="Ícone de excluir">
                     </button>
                 </div>
@@ -69,5 +85,5 @@
     </div>
 </section>
 <ng-template #semTarefas>
-    <p class="ng-template ff-prompt">Olá! Ainda não há pacientes cadastrados! :)</p>
+    <p class="ng-template ff-prompt">Olá! Zero pacientes! :)</p>
 </ng-template>

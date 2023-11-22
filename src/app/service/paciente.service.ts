@@ -39,22 +39,21 @@ export class PacienteService {
     return this.pacienteAtualizadoSubject.asObservable();
   }
 
-  editar(paciente: Paciente, atualizarSubject: boolean): void {
-    const url = `${this.API}/${paciente.id}`;
-    this.http.put<Paciente>(url, paciente).subscribe(pacienteEditado => {
-      if (atualizarSubject) {
-        const paciente = this.pacienteSubject.getValue()
-        const index = paciente.findIndex(x => x.id === pacienteEditado.id)
-        if (index !== -1) {
-          paciente[index] = pacienteEditado
-          this.pacienteSubject.next(paciente)
-        }
-      }
-    });
+  editar(paciente: Paciente): Observable<Paciente> {
+    const url = `${this.API}/atualizaPaciente`;
+    
+    return this.http.put<Paciente>(url, paciente);
   }
 
   buscarPorId(id: number): Observable<Paciente> {
     const url = `${this.API}/${id}`;
     return this.http.get<Paciente>(url);
+  }
+
+  excluir(paciente: Paciente): Observable<any> {
+    console.log(paciente.id);
+    
+    const url = `${this.API}/${paciente.id}`;
+    return this.http.delete(url);
   }
 }

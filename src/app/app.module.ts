@@ -16,6 +16,7 @@ import { MedicosComponent } from './components/medicos/medicos.component';
 import { ConsultasComponent } from './components/consultas/consultas.component';
 import { ModalComponent } from './modal/modal.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MensagemComponent } from './components/mensagem/mensagem.component';
 
 registerLocaleData(localePT);
 @NgModule({
@@ -28,7 +29,8 @@ registerLocaleData(localePT);
     PacientesComponent,
     MedicosComponent,
     ConsultasComponent,
-    ModalComponent
+    ModalComponent,
+    MensagemComponent
   ],
   imports: [
     BrowserModule,

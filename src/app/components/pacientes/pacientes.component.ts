@@ -11,15 +11,7 @@ import { PacienteService } from 'src/app/service/paciente.service';
 })
 export class PacientesComponent implements OnInit {
   formAbertoPaciente: boolean = false;
-
-  formularioPaciente: FormGroup = this.formBuilder.group({
-    id: [0],
-    nome: ['', Validators.required],
-    statusFinalizadoPaciente: [false, Validators.required],
-    nascimento: ['', Validators.required],
-    cpf: ['', Validators.required],
-    acompanhante: ['', Validators.required],
-  });
+  formularioPaciente!: FormGroup;
 
   listaPacientes: Paciente[] = [];
   pacientesFiltrados: Paciente[] = [];
@@ -35,7 +27,17 @@ export class PacientesComponent implements OnInit {
     this.atualizarDados();
     this.service.getDadosAtualizadosObservable().subscribe(() => {
       this.atualizarDados();
-  })}
+    })
+
+    this.formularioPaciente = this.formBuilder.group({
+      id: [0],
+      nome: ['', Validators.required, Validators.minLength(3)],
+      statusFinalizadoPaciente: [false, Validators.required],
+      nascimento: ['', Validators.required],
+      cpf: ['', Validators.required],
+      acompanhante: ['', Validators.required],
+    });
+  }
 
   atualizarDados() {
     this.service.listar().subscribe(x => {
@@ -69,9 +71,9 @@ export class PacientesComponent implements OnInit {
     });
   }
 
-  salvarCadastro(tipo: string) {
+  salvarCadastro() {
     if (this.formularioPaciente.value.id) {
-      this.editarPaciente(tipo);
+      this.editarPaciente();
     } else {
       this.criarCadastro();
     }
@@ -81,24 +83,34 @@ export class PacientesComponent implements OnInit {
       const novoPaciente = this.formularioPaciente.value;
       this.service.criar(novoPaciente).subscribe(() => {
         console.log('Paciente Criado!');
-      })
+      });
       this.resetarFormulario();
     }
   }
 
-  editarPaciente(tipo: string) {
+  editarPaciente() {
     if (this.formularioPaciente.valid) {
       const pacienteEditado = this.formularioPaciente.value;
-      this.service.editar(pacienteEditado, true);
+      this.service.editar(pacienteEditado).subscribe(() => {
+        console.log('Paciente Editado!');
+      });
       this.resetarFormulario();
-    }
+      this.atualizarDados();
+    };
+  }
+
+  excluirPaciente(paciente: Paciente) {
+    this.service.excluir(paciente).subscribe(() => {
+      console.log('Paciente Excluído!');
+    });
+    this.atualizarDados();
   }
 
   cancelar() {
     this.resetarFormulario();
   }
 
-  carregarParaEditar(id: number, tipo: string) {
+  carregarParaEditar(id: number) {
     this.service.buscarPorId(id!).subscribe((x) => {
       this.formularioPaciente = this.formBuilder.group({
         id: [x.id],
@@ -108,6 +120,6 @@ export class PacientesComponent implements OnInit {
         acompanhante: [x.acompanhante],
       });
     });
-    this.formAbertoPaciente = true;
+    this.formAbertoPaciente = true;    
   }
 }

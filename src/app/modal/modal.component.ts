@@ -13,14 +13,12 @@ import { shakeTrigger } from '../animations';
   ]
 })
 export class ModalComponent implements OnInit {
-  animationState = 'initial';
+  animationState:boolean = false;
 
   onButtonClick() {
-    this.animationState = 'shaking';
-    // Resetar o estado após a animação
-    setTimeout(() => {
-      this.animationState = 'initial';
-    }, 300);
+    console.log(this.animationState);
+    
+    this.animationState = !this.animationState;
   }
 
   modalData: Consulta= {
