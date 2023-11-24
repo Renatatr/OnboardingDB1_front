@@ -3,6 +3,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { ModalService } from '../service/modal.service';
 import { Consulta } from '../interface/consulta';
 import { shakeTrigger } from '../animations';
+import { ConsultaCalendario } from '../model/consultaCalendario';
 
 @Component({
   selector: 'app-modal',
@@ -14,20 +15,8 @@ import { shakeTrigger } from '../animations';
 })
 export class ModalComponent implements OnInit {
   animationState:boolean = false;
-
-  onButtonClick() {
-    console.log(this.animationState);
-    
-    this.animationState = !this.animationState;
-  }
-
-  modalData: Consulta= {
-    id: 1,
-    medicoId: 2,
-    pacienteId: 2,
-    data: new Date(),
-    duracaoMin: 3
-  }
+  modalData: ConsultaCalendario;
+  concuirModal: string;
 
   constructor(
     public dialogRef: MatDialogRef<ModalComponent>,
@@ -35,7 +24,14 @@ export class ModalComponent implements OnInit {
 
   ngOnInit(): void {
     this.modalData = this.modalService.getModalData();
-    console.log(this.modalData);
+  }
+
+  onButtonClick() {
+    this.animationState = !this.animationState;
+    this.close();
+    // this.modalService.modalConcluida().subscribe(x => {
+    //   this.concuirModal = x;  
+    // });
   }
 
   close(): void {

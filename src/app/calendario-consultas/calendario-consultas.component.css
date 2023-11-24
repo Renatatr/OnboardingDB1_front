@@ -37,7 +37,6 @@
     line-height: 20px;
 }
 
-
 .calendario-dias-semana {
     border: 2px solid white;
     font-size: 20px;
@@ -58,11 +57,9 @@
 
 .bi {
     background-color: #2b3130;
-    padding-right: 20%;
-    padding-left: 20%;
-    padding-top: 3%;
-    padding-bottom: 3%;
+    padding: 3% 20% 3% 20%;
     border-radius: 8px;
+    width: 2%;
     color: #fff;
     font-size: 14px;
     border-color: #ccc;

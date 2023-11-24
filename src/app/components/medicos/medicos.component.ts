@@ -15,10 +15,10 @@ export class MedicosComponent implements OnInit {
   formularioMedico: FormGroup = this.formBuilder.group({
     id: [0],
     nome: ['', Validators.required],
-    statusFinalizadoMedico: [false, Validators.required],
     cpf: ['', Validators.required],
     crm: ['', Validators.required],
     especialidade: ['', Validators.required],
+    descricaoEspecialidades: ['']
   });
 
   listaMedicos: Medico[] = [];
@@ -55,8 +55,7 @@ export class MedicosComponent implements OnInit {
   resetarFormulario() {
     this.formularioMedico.reset({
       nome: '',
-      statusFinalizadoMedico: false,
-      especialidade: '',
+      especialidade: 0,
       cpf: '',
       crm: '',
     });

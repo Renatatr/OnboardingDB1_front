@@ -26,7 +26,7 @@
         </div>
         <div *ngFor="let consulta of consultas"> 
             <div *ngIf="consultas.length > 0 && (dia | date: 'yyyy/MM/dd') === (consulta.data | date: 'yyyy/MM/dd')" >
-                <i class="bi bi-clock" (click)="abrirModal(consulta)"> {{(consulta.duracaoMin)}}min </i>
+                <i class="bi bi-clock" (click)="abrirModal(consulta.id)"> {{(consulta.duracaoMin)}}min </i>
             </div>
         </div> 
     </div>

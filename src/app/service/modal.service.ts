@@ -1,29 +1,28 @@
 import { Injectable } from '@angular/core';
-import { Consulta } from '../interface/consulta';
+import { ConsultaCalendario } from '../model/consultaCalendario';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ModalService {
-  private consulta: Consulta = {
-    id: 1,
-    medicoId: 2,
-    pacienteId: 2,
-    data: new Date(),
-    duracaoMin: 3
-  }
+  private consulta: ConsultaCalendario;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  setModalData(dados: Consulta): void {
+  setModalData(dados: ConsultaCalendario): void {
     this.consulta = dados;
   }
 
-  getModalData(): Consulta {
+  getModalData(): ConsultaCalendario {
     return this.consulta;
   }
 
+  // modalConcluida(): Observable<any> {
+  //   console.log('aaa');
+  //   return of('true');
+  // }
 }

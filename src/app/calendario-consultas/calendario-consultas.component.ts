@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs';
 import { ModalComponent } from '../modal/modal.component';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalService } from '../service/modal.service';
+import { ConsultaCalendario } from '../model/consultaCalendario';
 
 @Component({
   selector: 'app-calendario-consultas',
@@ -16,6 +17,7 @@ export class CalendarioConsultasComponent implements OnInit {
   diasCalendario: Date[] = [];
   consultas: Consulta[] = [];
   tarefasSubscrition: Subscription = new Subscription();
+  consultaDoDia: ConsultaCalendario;
 
   constructor(
     private service: ConsultaService,
@@ -64,25 +66,15 @@ export class CalendarioConsultasComponent implements OnInit {
       this.construirCalendario();
   }
 
-  abrirModal(consultaModal: Consulta){
-    const dialogRef = this.dialog.open(ModalComponent, {
-      width: '400px', 
-      height: '200px',
-      panelClass: ['custom-modal'],      
-    });
-
-    const dadosModal: Consulta = {
-      medicoId: consultaModal.medicoId,
-      pacienteId: consultaModal.pacienteId,
-      data: consultaModal.data,
-      duracaoMin: consultaModal.duracaoMin,
-      id: 0
-    };
-
-    this.modalService.setModalData(dadosModal);
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('A modal foi fechada');
+  abrirModal(consultaId: number){
+    this.service.listarDadosConsulta(consultaId).subscribe((result) => {
+      this.consultaDoDia = result[0];
+      this.modalService.setModalData(this.consultaDoDia);
+      this.dialog.open(ModalComponent, {
+        width: '800px', 
+        height: '200px',
+        panelClass: ['custom-modal', 'explode'],      
+      });
     });
   }
 }

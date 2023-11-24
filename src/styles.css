@@ -73,16 +73,6 @@
   margin-bottom: 32px;
 }
 
-.test {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-input {
-  font-weight: 400;
-}
-
 .form-paciente {
   font-family: 'Prompt';
   font-size: 16px;
@@ -119,17 +109,12 @@ input {
   padding-bottom: 4px;
 }
 
-.botoes-card button {
-  background-color: inherit;
-}
-
 @media screen and (max-width: 1200px) {
   .formulario {
     margin-right: 15%;
     margin-left: 15%;
   }
 }
-
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
